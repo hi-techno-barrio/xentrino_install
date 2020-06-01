@@ -21,8 +21,7 @@ elif [ $RELEASE == "xenial" ]
        
 elif [ $RELEASE == "bionic" ]
     then
-        ROSDISTRO=melodic
-        
+        ROSDISTRO=melodic       
 else
     echo "There's no ROS Distro compatible for your platform"
     exit 1
@@ -52,7 +51,6 @@ source ~/.bashrc
 sudo apt install -y python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
 sudo `which rosdep` init
 rosdep update
-
 rosdep install --default-yes --from-paths . --ignore-src --rosdistro $ROSDISTRO
 
 echo ""
