@@ -2,10 +2,11 @@
 
 #!/usr/bin/env bash
 
-echo
-echo "INSTALLING XENTRINOBOT(LINOROBOT)...."
-echo
-
+set -e
+echo "#####################################################################"
+echo "#                Hi-Techno Barrio                                   #" 
+echo "#                ROS Philippines                                    #"
+echo "#####################################################################"
 set -e
 
 ARCH=$(uname -i)
