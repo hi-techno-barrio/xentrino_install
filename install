@@ -3,7 +3,7 @@
 #!/usr/bin/env bash
 
 echo
-echo "INSTALLING XENTRINOBOT...."
+echo "INSTALLING XENTRINOBOT(LINOROBOT)...."
 echo
 
 set -e
