@@ -157,6 +157,7 @@ if [[ "$3" == "test" ]]
         ros-$ROSDISTRO-lms1xx \
         ros-$ROSDISTRO-freenect-launch \
         ros-$ROSDISTRO-depthimage-to-laserscan \
+        ros-$ROSDISTRO-rviz \
         ros-$ROSDISTRO-teb-local-planner 
 
         cd $HOME/xentrinobot_ws/src
