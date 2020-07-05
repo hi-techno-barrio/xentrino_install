@@ -76,9 +76,9 @@ if [ $RELEASE == "melodic" ]
      install_python_gudev()
 
 elif [ $RELEASE == "xenial" ]
-   
+      python-gudev
     then
-     python-gudev
+  
 else
     echo "Please check other python-udev installation method."
     exit 1
