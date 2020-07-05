@@ -132,7 +132,10 @@ echo
 # CALL FUNCTION/S
 #
 install_python_gudev(){
-          echo  Installing python-gudev !"
+         echo  Installing python-gudev !"
+         sudo apt-get install libgudev-1.0-dev -y 
+         
+         cd $HOME/xentrinobot_install
          git clone https://github.com/nzjrs/python-gudev.git
          cd python-gudev
          sudo apt install libtool-bin
