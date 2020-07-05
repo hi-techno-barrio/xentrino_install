@@ -66,8 +66,29 @@ avahi-daemon \
 openssh-server \
 python-setuptools \
 python-dev \
-build-essential \
-python-gudev
+build-essential 
+
+echo ""
+echo "ROS $(rosversion -d) Installing python-udev !"
+
+if [ $RELEASE == "melodic" ]
+    then
+    git clone https://github.com/nzjrs/python-gudev.git
+    cd python-gudev
+     sudo apt install libtool-bin
+    sudo apt install python-gobject-2-dev
+    ./autogen.sh 
+     make
+     sudo make instal
+elif [ $RELEASE == "xenial" ]
+   
+    then
+     python-gudev
+else
+    echo "Please check other python-udev installation method."
+    exit 1
+fi     
+
 
 sudo easy_install pip
 sudo python2.7 -m pip install -U platformio
