@@ -73,13 +73,8 @@ echo "ROS $(rosversion -d) Installing python-udev !"
 RELEASE=$(lsb_release -c -s)
 if [ $RELEASE == "melodic" ]
     then
-    git clone https://github.com/nzjrs/python-gudev.git
-    cd python-gudev
-     sudo apt install libtool-bin
-    sudo apt install python-gobject-2-dev
-    ./autogen.sh 
-     make
-     sudo make instal
+     install_python_gudev()
+
 elif [ $RELEASE == "xenial" ]
    
     then
@@ -134,3 +129,15 @@ catkin_make
 echo
 echo "ROS WORKSPACE DONE!"
 echo
+#
+# CALL FUNCTION/S
+#
+install_python_gudev(){
+         git clone https://github.com/nzjrs/python-gudev.git
+         cd python-gudev
+         sudo apt install libtool-bin
+         sudo apt install python-gobject-2-dev
+         ./autogen.sh 
+         make
+         sudo make instal
+}
