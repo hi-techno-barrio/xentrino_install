@@ -1,4 +1,9 @@
 
+echo "#####################################################################"
+echo "#                Hi-Techno Barrio                                   #" 
+echo "#                ROS Philippines                                    #"
+echo "#####################################################################"
+
 sudo cp files/49-teensy.rules /etc/udev/rules.d/
 
 ROSDISTRO="$(rosversion -d)"
