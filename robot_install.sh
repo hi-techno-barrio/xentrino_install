@@ -1,3 +1,6 @@
+
+sudo cp files/49-teensy.rules /etc/udev/rules.d/
+
 ROSDISTRO="$(rosversion -d)"
 BASE=$1
 SENSOR=$2
