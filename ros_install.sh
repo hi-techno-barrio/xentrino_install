@@ -70,7 +70,7 @@ build-essential
 
 echo ""
 echo "ROS $(rosversion -d) Installing python-udev !"
-
+RELEASE=$(lsb_release -c -s)
 if [ $RELEASE == "melodic" ]
     then
     git clone https://github.com/nzjrs/python-gudev.git
