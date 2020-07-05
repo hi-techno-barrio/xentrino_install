@@ -69,16 +69,15 @@ python-dev \
 build-essential 
 
 echo ""
-echo "ROS $(rosversion -d) Installing python-udev !"
 RELEASE=$(lsb_release -c -s)
+
 if [ $RELEASE == "melodic" ]
     then
-     install_python_gudev()
-
-elif [ $RELEASE == "xenial" ]
-      python-gudev
-    then
-  
+     install_python_gudev
+fi
+if [ $RELEASE == "xenial" ]
+  then
+      python-gudev  
 else
     echo "Please check other python-udev installation method."
     exit 1
@@ -133,6 +132,7 @@ echo
 # CALL FUNCTION/S
 #
 install_python_gudev(){
+          echo  Installing python-gudev !"
          git clone https://github.com/nzjrs/python-gudev.git
          cd python-gudev
          sudo apt install libtool-bin
