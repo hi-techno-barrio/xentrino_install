@@ -130,8 +130,8 @@ git clone https://github.com/linorobot/lino_pid.git
 git clone https://github.com/linorobot/lino_udev.git
 
 cd $HOME/xentrinobot_ws/src/xentrinobot/firmware
-export PLATFORMIO_CI_SRC=$PWD/xentrinobot.ino
-platformio ci --project-conf=./platformio.ini  --lib="/include/src_lib" --lib="/include/ros_lib" 
+export PLATFORMIO_CI_SRC=$PWD/src/xentrinobot.ino
+platformio ci --project-conf=./platformio.ini --lib="/include/src_lib" --lib="/include/ros_lib" 
 
 echo "source $HOME/xentrinobot_ws/devel/setup.bash" >> $HOME/.bashrc
 echo "export XENTRINOLIDAR=$SENSOR" >> $HOME/.bashrc
