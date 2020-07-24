@@ -10,7 +10,6 @@ echo "#####################################################################"
 set -e
 
 source /opt/ros/$(dir /opt/ros)/setup.bash
-sudo cp files/49-teensy.rules /etc/udev/rules.d/
 
 ARCH=$(uname -i)
 RELEASE=$(lsb_release -c -s)
@@ -44,8 +43,8 @@ if [ $ARCH == "x86_64" ]
         sudo apt -y install ros-$ROSDISTRO-desktop-full
         echo "Installing ROS-$ROSDISTRO Full Desktop Version"
 else  
-    sudo apt -y install ros-$ROSDISTRO-ros-base
-    echo "Installing ROS-$ROSDISTRO Barebones"
+      sudo apt -y install ros-$ROSDISTRO-ros-base
+      echo "Installing ROS-$ROSDISTRO Barebones"
 fi
 
 source /opt/ros/$ROSDISTRO/setup.bash
@@ -60,7 +59,6 @@ rosdep install --default-yes --from-paths . --ignore-src --rosdistro $ROSDISTRO
 echo ""
 echo "ROS $(rosversion -d) Installation Done!"
 
-source /opt/ros/$(dir /opt/ros)/setup.bash
 ROSDISTRO="$(rosversion -d)"
 
 sudo apt-get update
@@ -92,7 +90,7 @@ case $RELEASE in
     ;;
 
   xenial)
-    sudo apt-get install python-gudev  
+      sudo apt-get install python-gudev  
       sudo easy_install pip
     ;;
 
