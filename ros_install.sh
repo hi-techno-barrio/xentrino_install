@@ -1,5 +1,4 @@
 
-
 #!/usr/bin/env bash
 
 set -e
@@ -96,8 +95,8 @@ case $RELEASE in
     ;;
 
   *)
-    echo "Please check other python-udev installation method."
-       echo "....will install the default python-pip rather :)"
+     echo "Please check other python-udev installation method."
+     echo "...  will install default"
 	sudo apt-get install python-pip
     ;;
 esac
@@ -124,7 +123,7 @@ mkdir -p xentrinobot_ws/src
 cd $HOME/xentrinobot_ws/src
 catkin_init_workspace
 
-cd $HOME/linorobot_ws/src
+cd $HOME/xentrinobot_ws/src
 https://github.com/hi-techno-barrio/xentrinobot.git
 https://github.com/hi-techno-barrio/imu_calib.git
 git clone https://github.com/linorobot/lino_pid.git
