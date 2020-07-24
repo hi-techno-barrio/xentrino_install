@@ -1,5 +1,6 @@
 
 
+
 #!/usr/bin/env bash
 
 set -e
@@ -134,8 +135,6 @@ mkdir  $HOME/xentrinobot_ws/src/xentrinobot/firmware
 cd $HOME/xentrinobot_ws/src/xentrinobot/firmware
 export PLATFORMIO_CI_SRC=$PWD/xentrinobot.ino
 platformio ci --project-conf=./platformio.ini --lib="./include/ros_lib" --lib="./include" 
-
-
 
 echo "source $HOME/xentrinobot_ws/devel/setup.bash" >> $HOME/.bashrc
 echo "export XENTRINOLIDAR=$SENSOR" >> $HOME/.bashrc
