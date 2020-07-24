@@ -1,6 +1,5 @@
 
 
-
 #!/usr/bin/env bash
 
 set -e
@@ -11,6 +10,8 @@ echo "#####################################################################"
 set -e
 
 source /opt/ros/$(dir /opt/ros)/setup.bash
+sudo cp files/49-teensy.rules /etc/udev/rules.d/
+
 ARCH=$(uname -i)
 RELEASE=$(lsb_release -c -s)
 
@@ -31,6 +32,7 @@ else
 fi
 
 echo Installing ros-$ROSDISTRO
+
 sudo apt update
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
@@ -59,6 +61,8 @@ echo ""
 echo "ROS $(rosversion -d) Installation Done!"
 
 source /opt/ros/$(dir /opt/ros)/setup.bash
+ROSDISTRO="$(rosversion -d)"
+
 sudo apt-get update
 sudo apt-get install -y \
 avahi-daemon \
@@ -93,12 +97,14 @@ case $RELEASE in
     ;;
 
   *)
-    echo -n "echo "Please check other python-udev installation method.""
+    echo -n "echo "Please check other python-udev installation method."
+	sudo apt-get install python-pip
     ;;
 esac
 
 sudo python2.7 -m pip install -U platformio
 sudo rm -rf $HOME/.platformio/
+source /opt/ros/$ROSDISTRO/setup.bash
 
 sudo apt-get install -y \
 ros-$ROSDISTRO-roslint \
@@ -157,4 +163,5 @@ install_python_gudev(){
          make
          sudo make instal
 }
+
 
