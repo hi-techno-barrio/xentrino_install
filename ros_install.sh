@@ -70,21 +70,31 @@ build-essential
 
 echo ""
 RELEASE=$(lsb_release -c -s)
+case $ $RELEASE in
 
-if [ $RELEASE == "melodic" ]
-    then
-     install_python_gudev
-fi
-if [ $RELEASE == "xenial" ]
-  then
-      python-gudev  
-else
-    echo "Please check other python-udev installation method."
-    exit 1
-fi     
+ melodic)
+    echo  "Installing python-gudev !"
+         sudo apt-get install libgudev-1.0-dev -y 
+         cd $HOME/xentrinobot_install
+         git clone https://github.com/nzjrs/python-gudev.git
+         cd python-gudev
+         sudo apt install libtool-bin
+         sudo apt install python-gobject-2-dev
+         ./autogen.sh 
+         make
+         sudo make instal
+    ;;
 
+  xenial)
+    sudo apt-get install python-gudev  
+      sudo easy_install pip
+    ;;
 
-sudo easy_install pip
+  *)
+    echo -n "echo "Please check other python-udev installation method.""
+    ;;
+esac
+
 sudo python2.7 -m pip install -U platformio
 sudo rm -rf $HOME/.platformio/
 source /opt/ros/$ROSDISTRO/setup.bash
