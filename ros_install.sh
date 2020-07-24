@@ -70,10 +70,11 @@ build-essential
 
 echo ""
 RELEASE=$(lsb_release -c -s)
-case $ $RELEASE in
+case $RELEASE in
 
  melodic)
     echo  "Installing python-gudev !"
+         
          sudo apt-get install libgudev-1.0-dev -y 
          cd $HOME/xentrinobot_install
          git clone https://github.com/nzjrs/python-gudev.git
@@ -83,6 +84,8 @@ case $ $RELEASE in
          ./autogen.sh 
          make
          sudo make instal
+         
+      sudo apt-get install python-pip
     ;;
 
   xenial)
