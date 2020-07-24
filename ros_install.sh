@@ -129,8 +129,6 @@ git clone https://github.com/hi-techno-barrio/imu_calib.git
 git clone https://github.com/linorobot/lino_pid.git
 git clone https://github.com/linorobot/lino_udev.git
 
-cd $HOME/xentrinobot_ws/src/xentrinobot
-mkdir  $HOME/xentrinobot_ws/src/xentrinobot/firmware
 cd $HOME/xentrinobot_ws/src/xentrinobot/firmware
 export PLATFORMIO_CI_SRC=$PWD/xentrinobot.ino
 platformio ci --project-conf=./platformio.ini  --lib="/include/src_lib" --lib="/include/ros_lib" 
