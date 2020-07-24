@@ -53,6 +53,7 @@ source ~/.bashrc
 
 sudo apt install -y python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
 sudo `which rosdep` init
+sudo rosdep fix-permissions'
 rosdep update
 rosdep install --default-yes --from-paths . --ignore-src --rosdistro $ROSDISTRO
 
