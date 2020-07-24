@@ -9,6 +9,9 @@ echo "#                ROS Philippines                                    #"
 echo "#####################################################################"
 set -e
 
+source /opt/ros/$(dir /opt/ros)/setup.bash
+sudo cp files/49-teensy.rules /etc/udev/rules.d/
+
 ARCH=$(uname -i)
 RELEASE=$(lsb_release -c -s)
 
