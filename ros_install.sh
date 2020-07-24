@@ -124,8 +124,8 @@ cd $HOME/xentrinobot_ws/src
 catkin_init_workspace
 
 cd $HOME/xentrinobot_ws/src
-https://github.com/hi-techno-barrio/xentrinobot.git
-https://github.com/hi-techno-barrio/imu_calib.git
+git clone https://github.com/hi-techno-barrio/xentrinobot.git
+git clone https://github.com/hi-techno-barrio/imu_calib.git
 git clone https://github.com/linorobot/lino_pid.git
 git clone https://github.com/linorobot/lino_udev.git
 
