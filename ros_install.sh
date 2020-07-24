@@ -123,17 +123,21 @@ mkdir -p xentrinobot_ws/src
 cd $HOME/xentrinobot_ws/src
 catkin_init_workspace
 
-cd $HOME/xentrinobot_ws/src
-mkdir  $HOME/xentrinobot_ws/src/xentrinobot
+cd $HOME/linorobot_ws/src
+https://github.com/hi-techno-barrio/xentrinobot.git
+https://github.com/hi-techno-barrio/imu_calib.git
+git clone https://github.com/linorobot/lino_pid.git
+git clone https://github.com/linorobot/lino_udev.git
+
 cd $HOME/xentrinobot_ws/src/xentrinobot
-TRAVIS_BRANCH="echo $TRAVIS_BRANCH"
-if [ "$TRAVIS_BRANCH" = "devel" ]; then git checkout devel; fi
+mkdir  $HOME/xentrinobot_ws/src/xentrinobot/firmware
+cd $HOME/xentrinobot_ws/src/xentrinobot/firmware
+export PLATFORMIO_CI_SRC=$PWD/xentrinobot.ino
+platformio ci --project-conf=./platformio.ini --lib="./include/ros_lib" --lib="./include" 
 
-mkdir  $HOME/xentrinobot_ws/src/xentrinobot/teensy/firmware
-cd $HOME/xentrinobot_ws/src/xentrinobot/teensy/firmware
-export PLATFORMIO_CI_SRC=$PWD/src/Xentrino-ROS.ino
 
-echo "source $HOME/linorobot_ws/devel/setup.bash" >> $HOME/.bashrc
+
+echo "source $HOME/xentrinobot_ws/devel/setup.bash" >> $HOME/.bashrc
 echo "export XENTRINOLIDAR=$SENSOR" >> $HOME/.bashrc
 echo "export XENTRINOBASE=$BASE" >> $HOME/.bashrc
 source $HOME/.bashrc
@@ -160,3 +164,4 @@ install_python_gudev(){
          make
          sudo make instal
 }
+
