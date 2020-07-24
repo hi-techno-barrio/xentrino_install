@@ -96,7 +96,8 @@ case $RELEASE in
     ;;
 
   *)
-    echo -n "echo "Please check other python-udev installation method."
+    echo "Please check other python-udev installation method."
+       echo "....will install the default python-pip rather :)"
 	sudo apt-get install python-pip
     ;;
 esac
